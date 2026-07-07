@@ -3161,7 +3161,7 @@
     "id": "EOC_MENTOR_VANISH",
     "condition": { "u_has_trait": "MENTOR_PEACE" },
     "effect": [
-      { "u_die": { "remove_corpse": true, "supress_message": true, "remove_from_creature_tracker": true } },
+      { "u_die": { "remove_corpse": true, "supress_message": true } },
       { "npc_message": "%1$s vanishes in a fine mist." }
     ],
     "false_effect": [

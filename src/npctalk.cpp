@@ -5999,7 +5999,6 @@ talk_effect_fun_t::func f_die_advanced( const JsonObject &jo, std::string_view m
     JsonObject job = jo.get_object( member );
     std::optional<bool> remove_corpse;
     std::optional<bool> supress_message;
-    std::optional<bool> remove_from_creature_tracker;
 
     if( job.has_bool( "remove_corpse" ) ) {
         remove_corpse = job.get_bool( "remove_corpse" );
@@ -6007,20 +6006,12 @@ talk_effect_fun_t::func f_die_advanced( const JsonObject &jo, std::string_view m
     if( job.has_bool( "supress_message" ) ) {
         supress_message = job.get_bool( "supress_message" );
     }
-    if( job.has_bool( "remove_from_creature_tracker" ) ) {
-        remove_from_creature_tracker = job.get_bool( "remove_from_creature_tracker" );
-    }
 
-    return [remove_corpse, supress_message, remove_from_creature_tracker,
-                   is_npc]( dialogue const & d ) {
+    return [remove_corpse, supress_message, is_npc]( dialogue const & d ) {
         map &here = get_map();
 
         if( d.actor( is_npc )->get_monster() ) {
             monster &mon = *d.actor( is_npc )->get_monster();
-            if( remove_from_creature_tracker ) {
-                get_creature_tracker().remove( mon );
-                return;
-            }
             mon.death_drops = remove_corpse.has_value() ? !remove_corpse.value() : mon.death_drops;
             mon.quiet_death = supress_message.has_value() ? supress_message.value() : mon.quiet_death;
         } else if( d.actor( is_npc )->get_npc() ) {
