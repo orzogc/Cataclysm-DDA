@@ -500,6 +500,7 @@ Challenge - Labyrinth Bound
 Expanding zombie weakpoints with vitals
 Some `a shadow?` attacked survivor camp mapgen
 A mission to negotiate trade between the Exodii and Free Merchants
+Add display type to certain food/drink products
 
 
 ## Interface:
@@ -1301,6 +1302,7 @@ Zombie corpses aren't useful
 Stepped many many weapon recipes
 Joint Torsion Ratchet CBM doesn't allow for perpetual motion cyborgs
 Zero cost spells remain zero cost even if encumbered
+Kelvar is now fireproof
 
 ## Bugfixes:
 clarify repeater mod installation and add a vanilla quest for them
@@ -1845,6 +1847,10 @@ Fix Android black screen after turning the screen off
 Batch crafts no longer vanish when an unattended step's timeout is shorter than the batch-scaled craft time
 Labyrinth treasure room terminals work, and don't crash
 Worn flotation vest won't let you drown anymore
+Inventory organization crashes/freezes
+Fix fractional DoT displays
+Break monster grab if the monster was flung away
+[Xedra Evolved] Lilin only attack you in the main dimension
 
 
 ## Performance:
